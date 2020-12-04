@@ -355,7 +355,6 @@ export default class LoginComponent extends React.Component {
             behavior={Platform.OS === 'ios' ? 'padding' : null}>
             <View style={{flex: 1, justifyContent: 'center'}}>
               <ProcessLoginComponent Step={3} />
-
               <View
                 style={{
                   flex: 0.6,
@@ -445,6 +444,7 @@ export default class LoginComponent extends React.Component {
                     style={{
                       paddingVertical: 0,
                     }}
+                    keyboardAppearance={color.keyboardAppearance}
                     onFocus={() => this.handleFocusTextInput()}
                     onBlur={() => this.handleBlurTextInput()}
                     placeholder="Nhập Passcode"

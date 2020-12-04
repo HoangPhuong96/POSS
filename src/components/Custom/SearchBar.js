@@ -1,6 +1,7 @@
 import { Sizes } from '@dungdang/react-native-basic';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Dimensions, Image, Modal, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { color } from '../../res/colors';
 
 import images from '../../res/images';
 import { getStatusBarHeight } from '../../res/values/getStatusBarHeight';
@@ -63,6 +64,7 @@ const SearchBar = (props) => {
         <TextInput
           ref={inputRef}
           placeholder="Search"
+          keyboardAppearance={color.keyboardAppearance}
           onSubmitEditing={(e) => {
             inputRef.current.clear();
             inputRef.current.blur();

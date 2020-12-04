@@ -908,7 +908,9 @@ class MenuOrderComponent extends Component {
       <TouchableOpacity
         onPress={() => this.addCart(item, 'Condiment')}
         style={{width: '35%'}}>
-        <Text numberOfLines={1} style={{width: '100%', fontSize: Sizes.h30}}>
+        <Text
+          numberOfLines={1}
+          style={{width: '100%', fontSize: Sizes.h30, color: color.text}}>
           {item.NAME}
         </Text>
       </TouchableOpacity>
@@ -922,7 +924,7 @@ class MenuOrderComponent extends Component {
           style={{
             flexDirection: 'row',
             borderRadius: Sizes.s25,
-            backgroundColor: 'white',
+            backgroundColor: color.backgroundColor,
             shadowColor: '#000',
             shadowOffset: {
               width: 0,
@@ -953,6 +955,7 @@ class MenuOrderComponent extends Component {
           </TouchableOpacity>
           <TextInput
             keyboardType="numeric"
+            keyboardAppearance={color.keyboardAppearance}
             onChangeText={(text) => {
               this.editQTYItemOrCondiment(item, 'Condiment', text);
             }}
@@ -981,9 +984,9 @@ class MenuOrderComponent extends Component {
               paddingVertical: 0,
               paddingHorizontal: Sizes.s10,
               fontSize: Sizes.h36,
-
               textAlignVertical: 'center',
               textAlign: 'center',
+              color: color.text,
             }}
           />
           <TouchableOpacity
@@ -1116,7 +1119,7 @@ class MenuOrderComponent extends Component {
             style={{
               flexDirection: 'row',
               borderRadius: Sizes.s25,
-              backgroundColor: 'white',
+              backgroundColor: color.backgroundColor,
               shadowColor: '#000',
               shadowOffset: {
                 width: 0,
@@ -1148,6 +1151,7 @@ class MenuOrderComponent extends Component {
             <TextInput
               maxLength={3}
               keyboardType="numeric"
+              keyboardAppearance = {color.keyboardAppearance}
               onChangeText={(text) => {
                 if (text != '') {
                   clearTimeout(this.lastTimeout);
@@ -1168,7 +1172,7 @@ class MenuOrderComponent extends Component {
                 paddingVertical: 0,
                 paddingHorizontal: Sizes.s10,
                 fontSize: Sizes.h36,
-
+                color :color.text,
                 textAlignVertical: 'center',
                 textAlign: 'center',
               }}
@@ -1446,7 +1450,11 @@ class MenuOrderComponent extends Component {
                 }}>
                 <View style={{height: '35%', width: '100%'}} />
               </TouchableWithoutFeedback>
-              <View style={styles.modalView}>
+              <View
+                style={[
+                  styles.modalView,
+                  {backgroundColor: color.backgroundColor},
+                ]}>
                 <View style={styles.modalTitle}>
                   <TouchableOpacity
                     onPress={() =>
@@ -1459,14 +1467,14 @@ class MenuOrderComponent extends Component {
                     <Image
                       source={images.ic_cancel}
                       resizeMode="contain"
-                      style={{width: Sizes.s30}}
+                      style={{width: Sizes.s30, tintColor: color.text}}
                     />
                   </TouchableOpacity>
                   <View style={{justifyContent: 'center'}}>
                     <Text
                       style={{
                         fontWeight: 'bold',
-
+                        color: color.text,
                         fontSize: 16,
                       }}>
                       {this.state.nameChooseCondiment}
